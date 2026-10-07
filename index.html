@@ -126,7 +126,8 @@
         <!-- Hero Section -->
         <section class="relative bg-gradient-to-r from-indigo-950 via-indigo-900 to-indigo-950 border-b border-rugged-border py-16 md:py-24 overflow-hidden">
             <div class="absolute inset-0 opacity-20 pointer-events-none">
-                <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1600&q=80" alt="Denim texture background" class="w-full h-full object-cover">
+                <!-- Foto Banner Hero -->
+                <img src="images/hero-banner.jpg" alt="Denim texture background" class="w-full h-full object-cover">
             </div>
             
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-10">
@@ -139,7 +140,7 @@
                         CRAFTERS OF INDIGO & HEAVYWEIGHT DENIM
                     </h1>
                     <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
-                        Koleksi kurasi *selvedge raw denim* terbaik dari brand lokal berpengaruh dan master denim Jepang. Nikmati seni pudar (*fading*) alami dari bahan 15oz hingga 23oz Heavyweight.
+                        Koleksi kurasi selvedge raw denim terbaik dari brand lokal berpengaruh dan master denim Jepang. Nikmati seni pudar (fading) alami dari bahan 15oz hingga 23oz Heavyweight.
                     </p>
                     <div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
                         <a href="#katalog" class="bg-tan-500 hover:bg-tan-600 text-black font-semibold text-sm uppercase tracking-wider px-8 py-3.5 rounded transition-colors shadow-lg shadow-tan-500/10">
@@ -234,12 +235,13 @@
                 <div class="text-center max-w-2xl mx-auto mb-12">
                     <span class="text-xs font-semibold uppercase tracking-widest text-tan-400">The Beauty of Aging</span>
                     <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-white mt-1">FADE LOG GALLERY</h2>
-                    <p class="text-slate-400 text-sm mt-2">Setiap garis lipatan (*honeycombs*, *whiskers*) menceritakan perjalanan dan karakter dari sang pemilik.</p>
+                    <p class="text-slate-400 text-sm mt-2">Setiap garis lipatan (honeycombs, whiskers) menceritakan perjalanan dan karakter dari sang pemilik.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="relative group overflow-hidden rounded-lg border border-rugged-border bg-indigo-950">
-                        <img src="https://images.unsplash.com/photo-1582552938357-32b906df40cb?auto=format&fit=crop&w=800&q=80" alt="Honeycomb fades" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100">
+                        <!-- Foto Fade 1 -->
+                        <img src="images/fade-sage.jpg" alt="Sage Honeycomb Fades" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100">
                         <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-5">
                             <span class="bg-tan-500 text-black text-[10px] font-bold px-2 py-0.5 rounded uppercase">Sage March 19oz</span>
                             <p class="text-white font-semibold mt-1">18 Bulan Pemakaian • 2 kali Wash</p>
@@ -248,7 +250,8 @@
                     </div>
 
                     <div class="relative group overflow-hidden rounded-lg border border-rugged-border bg-indigo-950">
-                        <img src="https://images.unsplash.com/photo-1542272604-780c36856842?auto=format&fit=crop&w=800&q=80" alt="Whiskers fades" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100">
+                        <!-- Foto Fade 2 -->
+                        <img src="images/fade-momotaro.jpg" alt="Momotaro Whiskers Fades" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100">
                         <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-5">
                             <span class="bg-tan-500 text-black text-[10px] font-bold px-2 py-0.5 rounded uppercase">Momotaro 15.7oz</span>
                             <p class="text-white font-semibold mt-1">2 Tahun Pemakaian • 4 kali Soak</p>
@@ -257,7 +260,8 @@
                     </div>
 
                     <div class="relative group overflow-hidden rounded-lg border border-rugged-border bg-indigo-950">
-                        <img src="https://images.unsplash.com/photo-1604176354204-9268737828e4?auto=format&fit=crop&w=800&q=80" alt="Iron Heart Fades" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100">
+                        <!-- Foto Fade 3 -->
+                        <img src="images/fade-ironheart.jpg" alt="Iron Heart Fades" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100">
                         <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-5">
                             <span class="bg-tan-500 text-black text-[10px] font-bold px-2 py-0.5 rounded uppercase">Iron Heart 21oz</span>
                             <p class="text-white font-semibold mt-1">14 Bulan Pemakaian • 1 kali Wash</p>
@@ -616,7 +620,7 @@
 
     <script>
         // ----------------------------------------------------
-        // 1. RAW DENIM PRODUCT DATABASE
+        // 1. RAW DENIM PRODUCT DATABASE (NAMA FILE FOTO LOKAL)
         // ----------------------------------------------------
         const products = [
             {
@@ -629,7 +633,7 @@
                 selvedge: 'Red ID Line',
                 cotton: '100% American Cotton',
                 fit: 'Slim Straight Fit',
-                image: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80',
+                image: 'images/wingman-15oz.jpg',
                 description: 'Artikel andalan Wingman Denim dengan warna deep indigo yang kaya. Konstruksi sanforized membuat celana ini nyaman dipakai harian tanpa resiko shrinkage besar.'
             },
             {
@@ -642,7 +646,7 @@
                 selvedge: 'Gold ID Line',
                 cotton: 'Extra Heavy Loomstate Cotton',
                 fit: 'Slim Tapered Cut',
-                image: 'https://images.unsplash.com/photo-1604176354204-9268737828e4?auto=format&fit=crop&w=800&q=80',
+                image: 'images/sage-march-19oz.jpg',
                 description: 'Dibuat khusus untuk pecinta kontras pudar yang tajam. Menggunakan kain 19oz Unsanforized berbahan kaku khas Sage dengan tanda bordir gunung di saku belakang.'
             },
             {
@@ -655,7 +659,7 @@
                 selvedge: 'Signature Pink Line',
                 cotton: '100% Zimbabwean Cotton',
                 fit: 'Tight Tapered Fit',
-                image: 'https://images.unsplash.com/photo-1582552938357-32b906df40cb?auto=format&fit=crop&w=800&q=80',
+                image: 'images/momotaro-gtb-157oz.jpg',
                 description: 'Mahakarya denim asal Kojima, Jepang. Menggunakan katun Zimbabwe terbaik bertekstur lembut namun kokoh dengan ciri khas 2 garis putih "Going To Battle" di saku belakang.'
             },
             {
@@ -668,7 +672,7 @@
                 selvedge: 'Red/White Selvedge',
                 cotton: 'Extra Heavy Duty Japanese Cotton',
                 fit: 'Devil\'s Slim Straight Fit',
-                image: 'https://images.unsplash.com/photo-1542272604-780c36856842?auto=format&fit=crop&w=800&q=80',
+                image: 'images/ironheart-ih666s-21oz.jpg',
                 description: 'Standar emas dunia heavy denim asal Jepang. Meskipun berbobot ekstrem 21oz, tenunannya dirancang fleksibel dan breathable sehingga sangat tahan lama untuk pengendara motor.'
             },
             {
@@ -681,7 +685,7 @@
                 selvedge: 'Red & Gold Line',
                 cotton: 'Loomstate Extra Rough Slub',
                 fit: 'Straight Cut Vintage Fit',
-                image: 'https://images.unsplash.com/photo-1584370848010-d7fe6bc767ec?auto=format&fit=crop&w=800&q=80',
+                image: 'images/oldblue-beast-21oz.jpg',
                 description: 'Koleksi paling garang dari Oldblue Co. Menggunakan material loomstate kaku bertekstur slub ekstrem dengan leather patch tebal 4mm yang akan berpatina seiring waktu.'
             }
         ];
@@ -1275,4 +1279,3 @@
     </script>
 </body>
 </html>
-```
