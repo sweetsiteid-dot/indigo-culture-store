@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INDIGO CULTURE - Premium Raw Denim Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        h1, h2, h3, .font-heading { font-family: 'Space+Grotesk', sans-serif; }
+        .denim-gradient { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }
+        .indigo-accent { color: #6366f1; }
+        .bg-indigo-accent { background-color: #6366f1; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <!-- NAVBAR -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <span class="text-2xl font-bold tracking-wider font-heading text-indigo-400">INDIGO<span class="text-white">CULTURE</span></span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-semibold tracking-wide text-slate-300">
+                <a href="#katalog" class="hover:text-indigo-400 transition">KATALOG</a>
+                <a href="#guide" class="hover:text-indigo-400 transition">DENIM GUIDE</a>
+                <a href="#fade" class="hover:text-indigo-400 transition">FADE GALLERY</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button onclick="toggleCart()" class="relative p-2 text-slate-300 hover:text-white">
+                    <i class="fa-solid fa-cart-shopping text-xl"></i>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-indigo-500 text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO BANNER -->
+    <header class="relative bg-slate-900 border-b border-slate-800 py-20 px-4 text-center">
+        <div class="max-w-4xl mx-auto space-y-6">
+            <span class="px-3 py-1 bg-indigo-950 text-indigo-400 border border-indigo-800 rounded-full text-xs font-semibold tracking-widest uppercase">Official Raw Denim Hub</span>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight leading-tight">CRAFTER OF INDIGO, HERITAGE & HEAVYWEIGHT</h1>
+            <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto">Koleksi selvedge raw denim pilihan dari brand pengrajin terbaik Indonesia & Jepang. Mulai dari 14oz hingga 25oz Extra Heavyweight.</p>
+            <div class="flex justify-center gap-4">
+                <a href="#katalog" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-8 py-3 rounded-lg shadow-lg shadow-indigo-600/30 transition">Eksplor Katalog</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- KATALOG PRODUK -->
+    <section id="katalog" class="max-w-7xl mx-auto px-4 py-16 w-full">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+            <div>
+                <h2 class="text-2xl font-bold text-white">Koleksi Artikel Pilihan</h2>
+                <p class="text-slate-400 text-sm">Pilih artikel berdasarkan brand kesukaanmu</p>
+            </div>
+            
+            <!-- FILTER BRAND -->
+            <div class="flex flex-wrap gap-2" id="brand-filters">
+                <button onclick="filterBrand('all')" class="filter-btn active bg-indigo-600 text-white px-4 py-1.5 rounded-full text-xs font-semibold">Semua</button>
+                <button onclick="filterBrand('Wingman')" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 px-4 py-1.5 rounded-full text-xs font-semibold">Wingman</button>
+                <button onclick="filterBrand('Sage')" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 px-4 py-1.5 rounded-full text-xs font-semibold">Sage</button>
+                <button onclick="filterBrand('Momotaro')" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 px-4 py-1.5 rounded-full text-xs font-semibold">Momotaro</button>
+                <button onclick="filterBrand('Iron Heart')" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 px-4 py-1.5 rounded-full text-xs font-semibold">Iron Heart</button>
+                <button onclick="filterBrand('Oldblue')" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 px-4 py-1.5 rounded-full text-xs font-semibold">Oldblue Co.</button>
+            </div>
+        </div>
+
+        <!-- GRID PRODUK -->
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Rendered by JS -->
+        </div>
+    </section>
+
+    <!-- DRAWER KERANJANG -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex justify-end">
+        <div class="w-full max-w-md bg-slate-900 h-full p-6 flex flex-col justify-between border-l border-slate-800">
+            <div>
+                <div class="flex justify-between items-center pb-4 border-b border-slate-800">
+                    <h3 class="text-lg font-bold text-white">Keranjang Belanja</h3>
+                    <button onclick="toggleCart()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
+                </div>
+                <div id="cart-items" class="py-4 space-y-4 max-h-[60vh] overflow-y-auto">
+                    <!-- Items -->
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-4 space-y-4">
+                <div class="flex justify-between text-base font-bold text-white">
+                    <span>Total:</span>
+                    <span id="cart-total">Rp 0</span>
+                </div>
+                <button onclick="showCheckout()" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-lg transition">Lanjut Pembayaran</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CHECKOUT & PAYMENT -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto p-6 space-y-6">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                <h3 class="text-xl font-bold text-white">Formulir Pembayaran</h3>
+                <button onclick="closeCheckout()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            
+            <form id="checkout-form" onsubmit="processPayment(event)" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-1">Nama Lengkap</label>
+                        <input type="text" required class="w-full bg-slate-800 border border-slate-700 rounded p-2 text-sm text-white focus:outline-none focus:border-indigo-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-1">Nomor WhatsApp</label>
+                        <input type="tel" required placeholder="08xxxxxxxxxx" class="w-full bg-slate-800 border border-slate-700 rounded p-2 text-sm text-white focus:outline-none focus:border-indigo-500">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 mb-1">Alamat Pengiriman Lengkap</label>
+                    <textarea required rows="2" class="w-full bg-slate-800 border border-slate-700 rounded p-2 text-sm text-white focus:outline-none focus:border-indigo-500"></textarea>
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 mb-1">Metode Pembayaran</label>
+                    <select id="payment-method" class="w-full bg-slate-800 border border-slate-700 rounded p-2 text-sm text-white focus:outline-none focus:border-indigo-500">
+                        <option value="qris">QRIS (GoPay, OVO, ShopeePay, BCA)</option>
+                        <option value="va_bca">Virtual Account BCA</option>
+                        <option value="va_mandiri">Virtual Account Mandiri</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-lg transition">Bayar Sekarang</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-8 text-center text-xs text-slate-500">
+        <p>© 2026 INDIGO CULTURE. All rights reserved. Crafted for Denimheads.</p>
+    </footer>
+
+    <!-- JAVASCRIPT DATA & APP ENGINE -->
+    <script>
+        const products = [
+            { id: 1, brand: 'Wingman', name: 'Wingman 15oz Super Indigo', oz: '15oz', type: 'Sanforized', price: 780000, img: 'https://images.unsplash.com/photo-1542272604-780c96856552?auto=format&fit=crop&w=600&q=80' },
+            { id: 2, brand: 'Wingman', name: 'Wingman 18oz Deep Sea', oz: '18oz', type: 'Unsanforized', price: 920000, img: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=600&q=80' },
+            { id: 3, brand: 'Wingman', name: 'Wingman 14oz Vintage Blue', oz: '14oz', type: 'Sanforized', price: 720000, img: 'https://images.unsplash.com/photo-1604176354204-9268737828e4?auto=format&fit=crop&w=600&q=80' },
+            { id: 4, brand: 'Sage', name: 'Sage March 19oz Heavyweight', oz: '19oz', type: 'Unsanforized', price: 1250000, img: 'https://images.unsplash.com/photo-1582552938357-32b906df40cb?auto=format&fit=crop&w=600&q=80' },
+            { id: 5, brand: 'Sage', name: 'Sage Ranger 16oz Gold Line', oz: '16oz', type: 'Sanforized', price: 980000, img: 'https://images.unsplash.com/photo-1542272604-780c96856552?auto=format&fit=crop&w=600&q=80' },
+            { id: 6, brand: 'Sage', name: 'Sage Everbeast 22oz Loomstate', oz: '22oz', type: 'Unsanforized', price: 1450000, img: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=600&q=80' },
+            { id: 7, brand: 'Momotaro', name: 'Momotaro 0306-SP GTB', oz: '15.7oz', type: 'Unsanforized', price: 4300000, img: 'https://images.unsplash.com/photo-1604176354204-9268737828e4?auto=format&fit=crop&w=600&q=80' },
+            { id: 8, brand: 'Momotaro', name: 'Momotaro 0105-TN Tenryu', oz: '18oz', type: 'Sanforized', price: 4750000, img: 'https://images.unsplash.com/photo-1582552938357-32b906df40cb?auto=format&fit=crop&w=600&q=80' },
+            { id: 9, brand: 'Iron Heart', name: 'Iron Heart IH-666S-21 Heavy', oz: '21oz', type: 'Sanforized', price: 5800000, img: 'https://images.unsplash.com/photo-1542272604-780c96856552?auto=format&fit=crop&w=600&q=80' },
+            { id: 10, brand: 'Iron Heart', name: 'Iron Heart IH-634S 25oz Beast', oz: '25oz', type: 'Unsanforized', price: 6500000, img: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=600&q=80' },
+            { id: 11, brand: 'Oldblue', name: 'Oldblue Co. 21/23oz Heavy', oz: '21/23oz', type: 'Unsanforized', price: 2400000, img: 'https://images.unsplash.com/photo-1604176354204-9268737828e4?auto=format&fit=crop&w=600&q=80' },
+            { id: 12, brand: 'Oldblue', name: 'Oldblue Co. 15oz Standard', oz: '15oz', type: 'Sanforized', price: 1850000, img: 'https://images.unsplash.com/photo-1582552938357-32b906df40cb?auto=format&fit=crop&w=600&q=80' }
+        ];
+
+        let cart = [];
+
+        function renderProducts(filter = 'all') {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = '';
+            
+            const filtered = filter === 'all' ? products : products.filter(p => p.brand === filter);
+
+            filtered.forEach(p => {
+                grid.innerHTML += `
+                    <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-indigo-500/50 transition">
+                        <img src="${p.img}" alt="${p.name}" class="w-full h-64 object-cover">
+                        <div class="p-5 space-y-3">
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="text-indigo-400 font-bold uppercase">${p.brand}</span>
+                                <span class="bg-slate-800 text-slate-300 px-2 py-0.5 rounded border border-slate-700">${p.type} (${p.oz})</span>
+                            </div>
+                            <h3 class="font-bold text-white text-base">${p.name}</h3>
+                            <div class="flex justify-between items-center pt-2">
+                                <span class="font-bold text-lg text-white">Rp ${p.price.toLocaleString('id-ID')}</span>
+                                <button onclick="addToCart(${p.id})" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold px-4 py-2 rounded transition">
+                                    + Keranjang
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function filterBrand(brand) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('bg-indigo-600', 'text-white'));
+            renderProducts(brand);
+        }
+
+        function addToCart(id) {
+            const product = products.find(p => p.id === id);
+            cart.push(product);
+            updateCart();
+            toggleCart();
+        }
+
+        function updateCart() {
+            document.getElementById('cart-count').innerText = cart.length;
+            const itemsContainer = document.getElementById('cart-items');
+            itemsContainer.innerHTML = '';
+            
+            let total = 0;
+            cart.forEach((item, index) => {
+                total += item.price;
+                itemsContainer.innerHTML += `
+                    <div class="flex justify-between items-center bg-slate-800/50 p-3 rounded">
+                        <div>
+                            <p class="text-sm font-bold text-white">${item.name}</p>
+                            <p class="text-xs text-slate-400">Rp ${item.price.toLocaleString('id-ID')}</p>
+                        </div>
+                        <button onclick="removeFromCart(${index})" class="text-rose-400 hover:text-rose-300 text-xs"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                `;
+            });
+
+            document.getElementById('cart-total').innerText = 'Rp ' + total.toLocaleString('id-ID');
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function toggleCart() {
+            document.getElementById('cart-drawer').classList.toggle('hidden');
+        }
+
+        function showCheckout() {
+            if (cart.length === 0) return alert('Keranjang kamu masih kosong, bestie!');
+            toggleCart();
+            document.getElementById('checkout-modal').classList.remove('hidden');
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkout-modal').classList.add('hidden');
+        }
+
+        function processPayment(e) {
+            e.preventDefault();
+            alert('Pesanan berhasil dibuat! Instruksi pembayaran telah dikirim ke nomor WhatsApp kamu.');
+            cart = [];
+            updateCart();
+            closeCheckout();
+        }
+
+        // Initial Render
+        renderProducts();
+    </script>
+</body>
+</html>
